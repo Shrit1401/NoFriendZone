@@ -36,9 +36,7 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY as string });
 export const getAdiosaResponseFromAI = async (
   userInput: string,
   difficulty: string
-): Promise<{
-  response: string;
-}> => {
+): Promise<{ response: string }> => {
   const USECHATGPT = process.env.USE_CHATGPT === "true";
   let personalityDescription = "";
   let interactionPrompt = "";
@@ -79,32 +77,27 @@ export const getAdiosaResponseFromAI = async (
       const response =
         result.choices[0]?.message?.content || "No response from ChatGPT.";
 
-      addChatToFirebase(userInput, response, difficulty);
+      await addChatToFirebase(userInput, response, difficulty);
 
-      const res = {
-        response,
-      };
-      return res;
+      return { response };
     } else {
       const result = await model.generateContent(prompt);
       const response = result.response?.text() || "No response from Gemini.";
-      addChatToFirebase(userInput, response, difficulty);
+      await addChatToFirebase(userInput, response, difficulty);
 
-      const res = {
-        response,
-      };
-      return res;
+      return { response };
     }
-  } catch (error: any) {
-    console.error("Error occurred: ", error.message);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error("Error occurred: ", error.message);
 
-    if (error.message.includes("SAFETY")) {
-      return {
-        response:
-          "Bro, I know she's a girl, but don't lose your cool. She's an AI model, not something you can engage in inappropriate talk with.",
-      };
+      if (error.message.includes("SAFETY")) {
+        return {
+          response:
+            "Bro, I know she's a girl, but don't lose your cool. She's an AI model, not something you can engage in inappropriate talk with.",
+        };
+      }
     }
-
     return {
       response: "Something went wrong. Please try again later.",
     };
