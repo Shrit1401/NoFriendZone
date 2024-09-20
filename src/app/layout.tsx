@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/home/header";
-import posthog from "posthog-js";
 import { PHProvider } from "@/providers/posthogprovider";
 import dynamic from "next/dynamic";
 

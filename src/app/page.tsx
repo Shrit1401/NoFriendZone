@@ -1,4 +1,3 @@
-import Header from "@/components/home/header";
 import { Button } from "@/components/ui/button";
 import React from "react";
 
