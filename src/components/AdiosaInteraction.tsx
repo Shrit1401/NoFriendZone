@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Send, Sparkles } from "lucide-react";
-import { getAdiosaResponseFromAI } from "@/lib/actions.server";
+import { getAdiosaResponseFromAI } from "@/lib/actions";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
