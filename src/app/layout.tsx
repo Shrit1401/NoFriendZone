@@ -23,6 +23,12 @@ export default function RootLayout({
     <PHProvider>
       <html lang="en" translate="no">
         <head>
+          <script
+            async
+            src="https://cdn.seline.so/seline.js"
+            data-token="c955847d0fd8810"
+          ></script>
+
           <meta name="google" content="notranslate" />
         </head>
         <body className={`antialiased`}>

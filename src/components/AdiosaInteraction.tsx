@@ -24,7 +24,7 @@ type Difficulty = "easy" | "medium" | "hard";
 
 export default function AdiosaChat() {
   const [input, setInput] = useState<string>("");
-  const [difficulty, setDifficulty] = useState<Difficulty>("easy");
+  const [difficulty, setDifficulty] = useState<Difficulty>("medium");
   const [messages, setMessages] = useState<Message[]>([]);
   const chatContainerRef = useRef<HTMLDivElement | null>(null);
 
