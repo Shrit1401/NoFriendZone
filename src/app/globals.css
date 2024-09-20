@@ -1,27 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1.5;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 330 46% 95%;
+  --foreground: 330 5% 10%;
+  --card: 330 46% 90%;
+  --card-foreground: 330 5% 15%;
+  --popover: 330 46% 95%;
+  --popover-foreground: 330 95% 10%;
+  --primary: 330 81.2% 60.4%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 330 30% 70%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 292 30% 85%;
+  --muted-foreground: 330 5% 35%;
+  --accent: 292 30% 80%;
+  --accent-foreground: 330 5% 15%;
+  --destructive: 0 50% 30%;
+  --destructive-foreground: 330 5% 90%;
+  --border: 330 30% 50%;
+  --input: 330 30% 28%;
+  --ring: 330 81.2% 60.4%;
+  --radius: 0.5rem;
+}
+.dark {
+  --background: 330 46% 10%;
+  --foreground: 330 5% 90%;
+  --card: 330 46% 10%;
+  --card-foreground: 330 5% 90%;
+  --popover: 330 46% 5%;
+  --popover-foreground: 330 5% 90%;
+  --primary: 330 81.2% 60.4%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 330 30% 20%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 292 30% 25%;
+  --muted-foreground: 330 5% 60%;
+  --accent: 292 30% 25%;
+  --accent-foreground: 330 5% 90%;
+  --destructive: 0 50% 30%;
+  --destructive-foreground: 330 5% 90%;
+  --border: 330 30% 28%;
+  --input: 330 30% 28%;
+  --ring: 330 81.2% 60.4%;
+  --radius: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.heading {
+  @apply px-4 md:text-6xl text-[2.5rem] font-bold;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+h1 {
+  @apply md:text-6xl text-5xl font-[900];
+}
+
+h2 {
+  @apply md:text-xl text-[1.2rem] font-medium;
 }
